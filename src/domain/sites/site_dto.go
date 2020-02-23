@@ -6,13 +6,14 @@ import (
 )
 
 type Site struct {
-	Id          int64  `json:"id"`
-	UserId      int64  `json:"user_id"`
-	Url         string `json:"url"`
-	Status      int64  `json:"status"`
-	ShortName   string `json:"short_name"`
-	Description string `json:"description"`
-	Enabled     bool   `json:"enabled"`
+	Id           int64  `json:"id"`
+	UserId       int64  `json:"user_id"`
+	Url          string `json:"url"`
+	Status       int64  `json:"status"`
+	ShortName    string `json:"short_name"`
+	Description  string `json:"description"`
+	Enabled      bool   `json:"enabled"`
+	DurationType int64  `json:"duration_type"`
 }
 
 type Sites []Site
