@@ -35,6 +35,14 @@ func (site *Site) Get() rest_errors.RestErr {
 }
 
 func (site *Site) Save() rest_errors.RestErr {
+
+	err := site.Validate()
+
+	if err != nil {
+		logger.Error("Wrong url", err)
+		return rest_errors.NewInternalServerError("error when saving, wrong url", errors.New("url error"))
+	}
+
 	saveErr := sites_db.Client.QueryRow(queryInsertSite, site.UserId, site.Url, site.Status, site.ShortName, site.Description, site.Enabled, &site.DurationType).Scan(&site.Id)
 
 	if saveErr != nil {

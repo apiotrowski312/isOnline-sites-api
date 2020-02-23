@@ -34,7 +34,7 @@ func addTicker(tickerType int) {
 			newStatus := checker.GetStatus(tick.Url)
 
 			if newStatus != tick.Status {
-				logger.Info(fmt.Sprintf("Status for %s has changed. %d to %d", tick.Url, newStatus, tick.Status))
+				logger.Info(fmt.Sprintf("Status for %s has changed. %d to %d", tick.Url, tick.Status, newStatus))
 				tick.Status = newStatus
 				tick.Update()
 			}
